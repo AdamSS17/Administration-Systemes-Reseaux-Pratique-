@@ -27,3 +27,11 @@
 # Router# configure terminal Router(config)# interface [NOM_DE_L'INTERFACE]  # Ex: interface GigabitEthernet0/0 Router(config-if)#
 # Attribuez l'Adresse IP (La Passerelle) avec la commande ip address 192.168.1.1 255.255.255.0
 # Activez l'Interface avec la commande no shutdown
+# À ce stade, vous devriez voir des messages de changement d'état de l'interface, et le point sur le lien dans Packet Tracer devrait passer du rouge/orange au vert
+# retourner en mode privilegie avec la commande END avant de sauvegarder   avec copy run start
+# Tâche 2 : Configuration du PC Client
+# Cliquez sur le PC dans votre topologie Packet Tracer. Allez dans l'onglet Desktop (Bureau) puis IP Configuration. Configurez ces paramètres en mode Statique : Adresse IP : 192.168.1.100 (ou toute IP libre dans le réseau, ex: $192.168.1.x$) Masque de sous-réseau : 255.255.255.0 Passerelle par défaut (Default Gateway) : 192.168.1.1 (C'est l'IP que vous venez de donner au routeur !)
+# Tâche 3 : Validation
+# Sur le PC, ouvrez le Command Prompt 
+# Testez la passerelle avec ping 192.168.1.1
+# Si le ping réussit, vous avez configuré votre premier routeur Cisco pour servir de passerelle à votre LAN !
