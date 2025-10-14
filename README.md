@@ -19,3 +19,11 @@
    # Testez la sécurité : Tapez exit jusqu'à ce que vous soyez complètement déconnecté, puis reconnectez-vous.
    # Essayez de taper enable et entrez le mot de passe [mot de passe]
 # 2.2 Configuration d'un LAN (Réseau Local)
+# L'objectif est d'activer l'interface du routeur et de lui donner une adresse IP pour qu'il puisse servir de Passerelle (Gateway) à vos PC.
+## Tâche 1 : Configuration de l'Interface du Routeur
+# Dans Packet Tracer, retournez sur le routeur R1 (celui que vous venez de configurer)
+# Identifiez l'interface par exemple GigabitEthernet0/0 (ou G0/0).
+# Passez en Mode de Configuration d'Interface 
+# Router# configure terminal Router(config)# interface [NOM_DE_L'INTERFACE]  # Ex: interface GigabitEthernet0/0 Router(config-if)#
+# Attribuez l'Adresse IP (La Passerelle) avec la commande ip address 192.168.1.1 255.255.255.0
+# Activez l'Interface avec la commande no shutdown
