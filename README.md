@@ -35,3 +35,6 @@
 # Sur le PC, ouvrez le Command Prompt 
 # Testez la passerelle avec ping 192.168.1.1
 # Si le ping réussit, vous avez configuré votre premier routeur Cisco pour servir de passerelle à votre LAN !
+# 
+
+
