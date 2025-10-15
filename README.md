@@ -35,6 +35,24 @@
 # Sur le PC, ouvrez le Command Prompt 
 # Testez la passerelle avec ping 192.168.1.1
 # Si le ping réussit, vous avez configuré votre premier routeur Cisco pour servir de passerelle à votre LAN !
-# 
+# Étape 2.3 : Configurer le Routeur Cisco en Serveur DHCP
+# Tâche 1 : Exclure les Adresses Statiques (Sécurité et Stabilité)
+# L'exclusion est la première étape pour garantir la stabilité de notre réseau.
+# onutilise la commande ip dhcp excluded-address 192.168.1.1 192.168.1.9 
+# 192.168.1.1(Cette adresse est la Passerelle par défaut de votre réseau (l'IP de l'interface du Routeur R1). La passerelle doit toujours être statique (jamais distribuée par DHCP) pour éviter les problèmes.) 
+# Nous excluons toutes les adresses entre 192.168.1.1 et 192.168.1.9. Cela réserve les 9 premières adresses du réseau pour d'autres équipements de service qui doivent avoir une adresse statique (ex: Serveurs, Imprimantes Réseau, autres Routeurs).) Cette commande indique au serveur DHCP de NE PAS distribuer les adresses IP dans la plage spécifiée.
+# on va dans le mode de configuration CONFIGURE TERMINAL et on lance la commande ip dhcp excluded-address 192.168.1.1 192.168.1.9
+# Tâche 2 : Créer le Pool DHCP (Le Réservoir d'Adresses)
+# Le "Pool" est la configuration du service DHCP lui-même. C'est l'endroit où vous définissez les paramètres que les clients recevront.
+# Créer le Pool. avec ip dhcp LAN-POOL Cette commande passe en DHCP Configuration Mode (Router(dhcp-config)#). LAN_POOL est simplement le nom que vous donnez à ce service (vous pouvez le nommer comme vous voulez).
+# Définir le réseau. avec network 192.168.1.0 255.255.255.0  Indique au serveur DHCP quel est le réseau qu'il doit gérer. 192.168.1.0 est l'adresse réseau. 255.255.255.0 est le masque de sous-réseau (qui définit le nombre d'adresses disponibles).
+# Définir la Passerelle avec default-router 192.168.1.1 Indique aux clients DHCP quelle est l'adresse de leur Passerelle par défaut. C'est par cette adresse (le routeur lui-même) qu'ils passeront pour communiquer avec d'autres réseaux (Internet, etc.).
+# OPTIONNEL MAIS RECOMMANDÉ dns-server 8.8.8.8 Indique aux clients quelle adresse utiliser pour le DNS (Domain Name System). Le DNS est essentiel pour traduire les noms de domaine (google.com) en adresses IP. 8.8.8.8 est un serveur DNS public de Google
+# on va dans le mode de configuration CONFIGURE TERMINAL et on lance les commandes "ip dhcp pool LAN-POOL" puis "network 192.168.1.0 255.255.255.0 " puis "default-router 192.168.1.1" enfin "dns-server 8.8.8.8"
+# retourner en mode privilegie avec la commande END avant de sauvegarder   avec "copy run start"
+# Testez le Client Sur le PC Client, allez dans Desktop > IP Configuration puis Passez de Static à DHCP
+# Le PC devrait recevoir une adresse IP entre 192.168.1.10 et 192.168.1.254 et la Passerelle 192.168.1.1.
+
+
 
 
