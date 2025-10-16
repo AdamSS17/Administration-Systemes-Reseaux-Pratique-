@@ -52,6 +52,20 @@
 # retourner en mode privilegie avec la commande END avant de sauvegarder   avec "copy run start"
 # Testez le Client Sur le PC Client, allez dans Desktop > IP Configuration puis Passez de Static à DHCP
 # Le PC devrait recevoir une adresse IP entre 192.168.1.10 et 192.168.1.254 et la Passerelle 192.168.1.1.
+# Étape de Validation : Le Test Final
+# Vérifier la Configuration (L'adresse a-t-elle été reçue ?)
+Avant de tester la connectivité, vérifiez que le PC a bien les informations nécessairesavec la commande ipconfig/all 
+sur packet tracer pour verifier les informations necessaire on tape lacommande ipconfig qui doit afficher L'adresse IP , Le masque de sous-réseau ,La passerelle par défaut 
+ensuite faire le test sur le pc avec ping l'addresse passerelle 
+# Étape 2.4 - Sécurisation
+l'objectif de cet etape est de Déployer les Bannières d'Avertissement
+# Tâche 1 : La Bannière "Message Of The Day" (MOTD) 
+C'est le message qui apparaît immédiatement au début de la connexion, avant toute authentification.
+dabord 
+pssons en  Global Configuration Mode avec "configure terminal puis Définissez la bannière MOTD avec la commande "banner motd *ACCES RESTREINT. CE MATERIEL EST RESERVE AU PERSONNEL AUTORISE. TOUTE TENTATIVE D'ACCES NON AUTORISE EST SURVEILLEE ET POURSUIVABLE.*". Vous devez choisir un caractère délimiteur (ici, le caractère *). Ce caractère indique le début et la fin de votre message.
+
+
+
 
 
 
